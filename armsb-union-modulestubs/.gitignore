@@ -1,0 +1,27 @@
+target/
+*.jar
+*.war
+*.nar
+*.ear
+*.zip
+*.tar.gz
+*.rar
+hs_err_pid*
+
+# IDE
+.idea/
+*.iws
+*.iml
+*.ipr
+.vscode/
+
+# Maven
+.mvn/wrapper/maven-wrapper.jar
+.flattened-pom.xml
+
+# Log files
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
