@@ -1,0 +1,16 @@
+{
+  "status": {
+    "code": 0,
+    "message": "Order created successfully"
+  },
+  "timestamp": 1640995200000,
+  "mockId": "stub01", 
+  "endpoint": "/orders/create",
+  "data": {
+    "orderId": "ORD-2024-001",
+    "amount": 150.75,
+    "currency": "USD",
+    "status": "pending",
+    "createdAt": "2024-01-01T10:00:00Z"
+  }
+}

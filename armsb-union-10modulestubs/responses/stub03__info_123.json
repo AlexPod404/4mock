@@ -1,0 +1,15 @@
+{
+  "status": {
+    "code": 0,
+    "message": "Information retrieved for ID 123"
+  },
+  "timestamp": 1756111584000,
+  "mockId": "stub03",
+  "endpoint": "/info/123",
+  "data": {
+    "id": "123",
+    "type": "stub03-data",
+    "version": "1.03.0",
+    "lastModified": "2025-08-25T08:46:24+00:00"
+  }
+}

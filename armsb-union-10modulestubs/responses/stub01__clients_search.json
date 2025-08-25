@@ -1,0 +1,26 @@
+{
+  "status": {
+    "code": 0,
+    "message": "Successfully processed client search request"
+  },
+  "timestamp": 1640995200000,
+  "mockId": "stub01",
+  "endpoint": "/clients/search",
+  "data": {
+    "clients": [
+      {
+        "id": "12345",
+        "name": "John Doe",
+        "email": "john.doe@example.com",
+        "status": "active"
+      },
+      {
+        "id": "67890",
+        "name": "Jane Smith", 
+        "email": "jane.smith@example.com",
+        "status": "active"
+      }
+    ],
+    "totalCount": 2
+  }
+}
