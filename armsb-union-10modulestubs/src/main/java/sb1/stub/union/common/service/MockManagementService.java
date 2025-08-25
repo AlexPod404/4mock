@@ -30,8 +30,17 @@ public class MockManagementService {
     
     @PostConstruct
     public void init() {
-        // Initialize all 10 stubs as enabled by default
-        for (int i = 1; i <= 10; i++) {
+        // Initialize renamed stubs (stub01-stub07 renamed to new names)
+        mockStates.put("armsb_client_card", new MockState("armsb_client_card", true));
+        mockStates.put("armsb_clients", new MockState("armsb_clients", true));
+        mockStates.put("armsb_cti", new MockState("armsb_cti", true));
+        mockStates.put("armsb_tasks", new MockState("armsb_tasks", true));
+        mockStates.put("assistant_sber_one", new MockState("assistant_sber_one", true));
+        mockStates.put("armsb_calendar", new MockState("armsb_calendar", true));
+        mockStates.put("armsb-core", new MockState("armsb-core", true));
+        
+        // Initialize remaining stubs (stub08-stub10) with original names
+        for (int i = 8; i <= 10; i++) {
             String mockId = String.format("stub%02d", i);
             mockStates.put(mockId, new MockState(mockId, true));
         }
