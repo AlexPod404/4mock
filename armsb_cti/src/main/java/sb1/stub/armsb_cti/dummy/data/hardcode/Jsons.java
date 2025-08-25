@@ -1,4 +1,4 @@
-package sb1.stub.client_cti.dummy.data.hardcode;
+package sb1.stub.armsb_cti.dummy.data.hardcode;
 
 public class Jsons {
     public static String errorRequest() {

@@ -1,4 +1,4 @@
-package sb1.stub.client_cti;
+package sb1.stub.armsb_cti;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

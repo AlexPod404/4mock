@@ -1,4 +1,4 @@
-package sb1.stub.client_card;
+package sb1.stub.armsb_client_card;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

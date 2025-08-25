@@ -1,10 +1,10 @@
-package sb1.stub.client_cti.dummy.webservice;
+package sb1.stub.armsb_cti.dummy.webservice;
 
 
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
-import sb1.stub.client_cti.dummy.data.hardcode.Jsons;
+import sb1.stub.armsb_cti.dummy.data.hardcode.Jsons;
 
 @Slf4j
 @RestController

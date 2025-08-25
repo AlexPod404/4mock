@@ -1,10 +1,10 @@
-package sb1.stub.client_card.dummy.webservice;
+package sb1.stub.armsb_client_card.dummy.webservice;
 
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.io.IOUtils;
 import org.springframework.web.bind.annotation.*;
-import sb1.stub.client_card.dummy.data.hardcode.Jsons;
+import sb1.stub.armsb_client_card.dummy.data.hardcode.Jsons;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

@@ -1,4 +1,4 @@
-package sb1.stub.client_card.dummy.data.hardcode;
+package sb1.stub.armsb_client_card.dummy.data.hardcode;
 
 public class Jsons {
     public static String errorRequest() {
