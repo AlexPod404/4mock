@@ -1,0 +1,13 @@
+{
+  "status": {
+    "code": 0,
+    "message": "Data processed successfully by stub05"
+  },
+  "timestamp": 1756111584000,
+  "mockId": "stub05",
+  "endpoint": "/data/process",
+  "data": {
+    "processedItems": 50,
+    "processingTime": 500
+  }
+}

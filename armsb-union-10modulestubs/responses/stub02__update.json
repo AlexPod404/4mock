@@ -1,0 +1,13 @@
+{
+  "status": {
+    "code": 0,
+    "message": "Update completed successfully"
+  },
+  "timestamp": 1756111584000,
+  "mockId": "stub02",
+  "endpoint": "/update",
+  "data": {
+    "updated": true,
+    "recordsModified": 10
+  }
+}

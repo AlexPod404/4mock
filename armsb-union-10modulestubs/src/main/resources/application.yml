@@ -1,0 +1,68 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /
+  ssl:
+    enabled: false
+    # key-store: classpath:keystore.p12
+    # key-store-password: changeit
+    # key-store-type: PKCS12
+
+spring:
+  application:
+    name: armsb-union-10modulestubs
+  boot:
+    admin:
+      client:
+        url: http://localhost:${server.port}
+        instance:
+          name: ${spring.application.name}
+      server:
+        enabled: true
+  security:
+    user:
+      name: admin
+      password: admin
+      roles: ADMIN
+
+# Admin credentials (configurable)
+admin:
+  username: admin
+  password: admin
+
+# Mock configuration
+mock:
+  state:
+    file: mock-states.json
+  responses:
+    dir: responses
+
+# Actuator endpoints
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always
+    loggers:
+      enabled: true
+  metrics:
+    export:
+      prometheus:
+        enabled: true
+
+# Logging configuration
+logging:
+  level:
+    root: INFO
+    sb1.stub.union: INFO
+    org.springframework.security: DEBUG
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} - %msg%n"
+    file: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
+  file:
+    name: logs/armsb-union.log
+    max-size: 100MB
+    max-history: 30
