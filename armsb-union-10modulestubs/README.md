@@ -1,10 +1,10 @@
 # ARMSB Union 10 Module Stubs
 
 ## Overview
-A unified Spring Boot mock system that provides 10 independent mock modules (stub01-stub10) running on a single port. Built with Java 8 and Spring Boot 2.6.4, featuring comprehensive admin capabilities through Spring Boot Admin interface.
+A unified Spring Boot mock system that provides 10 independent mock modules (armsb_client_card, armsb_clients, armsb_cti, armsb_tasks, assistant_sber_one, armsb_calendar, armsb-core, stub08, stub09, stub10) running on a single port. Built with Java 8 and Spring Boot 2.6.4, featuring comprehensive admin capabilities through Spring Boot Admin interface.
 
 ## Features
-- ✅ **10 Independent Mock Modules** - Each with unique path prefixes (/stub01 to /stub10)
+- ✅ **10 Independent Mock Modules** - Each with unique path prefixes (armsb_client_card, armsb_clients, armsb_cti, armsb_tasks, assistant_sber_one, armsb_calendar, armsb-core, stub08-stub10)
 - ✅ **Single JAR Deployment** - One unified armsb-union-10modulestubs.jar file
 - ✅ **Spring Boot Admin Integration** - Server and client in same JAR with web UI
 - ✅ **Centralized Logging** - Online log viewing and dynamic level management
@@ -60,13 +60,19 @@ docker run -d -p 9090:8080 \
 
 Each stub provides consistent endpoints with unique path prefixes:
 
-### Stub01 (Client Management)
-- `POST /stub01/clients/search` - Search clients
-- `POST /stub01/orders/create` - Create orders
-- `GET /stub01/status` - Get status
-- `GET /stub01/health` - Health check
+### ARMSB Client Card (Client Management)
+- `POST /armsb_client_card/clients/search` - Search clients
+- `POST /armsb_client_card/orders/create` - Create orders
+- `GET /armsb_client_card/status` - Get status
+- `GET /armsb_client_card/health` - Health check
 
-### Stub02-10 (Generic Data Operations)
+### ARMSB Clients, CTI, Tasks, Assistant Sber One, Calendar, Core (Generic Data Operations)
+- `POST /armsb_clients/data/process` - Process data
+- `GET /armsb_clients/info/{id}` - Get information by ID
+- `PUT /armsb_clients/update` - Update data
+- `GET /armsb_clients/health` - Health check
+
+### Stub08-10 (Generic Data Operations)
 - `POST /stub0X/data/process` - Process data
 - `GET /stub0X/info/{id}` - Get information by ID
 - `PUT /stub0X/update` - Update data
@@ -74,18 +80,18 @@ Each stub provides consistent endpoints with unique path prefixes:
 
 ### Example Usage
 ```bash
-# Test stub01
-curl -X POST http://localhost:8080/stub01/clients/search \
+# Test armsb_client_card
+curl -X POST http://localhost:8080/armsb_client_card/clients/search \
   -H "Content-Type: application/json" \
   -d '{"query": "john"}'
 
-# Test stub02
-curl -X POST http://localhost:8080/stub02/data/process \
+# Test armsb_clients
+curl -X POST http://localhost:8080/armsb_clients/data/process \
   -H "Content-Type: application/json" \
   -d '{"data": "sample"}'
 
-# Get info from stub03
-curl http://localhost:8080/stub03/info/123
+# Get info from armsb_cti
+curl http://localhost:8080/armsb_cti/info/123
 ```
 
 ## Administration & Management
@@ -105,18 +111,18 @@ All management endpoints require authentication:
 curl -u admin:admin http://localhost:8080/management/mocks
 
 # Enable/disable specific mock
-curl -u admin:admin -X POST http://localhost:8080/management/mocks/stub01/enable
-curl -u admin:admin -X POST http://localhost:8080/management/mocks/stub01/disable
+curl -u admin:admin -X POST http://localhost:8080/management/mocks/armsb_client_card/enable
+curl -u admin:admin -X POST http://localhost:8080/management/mocks/armsb_client_card/disable
 
 # Toggle mock state
-curl -u admin:admin -X POST http://localhost:8080/management/mocks/stub01/toggle
+curl -u admin:admin -X POST http://localhost:8080/management/mocks/armsb_client_card/toggle
 
 # Get mock response
-curl -u admin:admin "http://localhost:8080/management/mocks/stub01/response?endpoint=/clients/search"
+curl -u admin:admin "http://localhost:8080/management/mocks/armsb_client_card/response?endpoint=/clients/search"
 
 # Save custom response
 curl -u admin:admin -X POST \
-  "http://localhost:8080/management/mocks/stub01/response?endpoint=/clients/search" \
+  "http://localhost:8080/management/mocks/armsb_client_card/response?endpoint=/clients/search" \
   -H "Content-Type: application/json" \
   -d '{"custom": "response"}'
 ```
@@ -184,10 +190,10 @@ LOGGING_LEVEL_ROOT=INFO
 JSON responses are stored in the `responses/` directory:
 ```
 responses/
-├── stub01__clients_search.json
-├── stub01__orders_create.json
-├── stub02__data_process.json
-├── stub02__info_123.json
+├── armsb_client_card__clients_search.json
+├── armsb_client_card__orders_create.json
+├── armsb_clients__data_process.json
+├── armsb_cti__info_123.json
 └── ...
 ```
 
@@ -199,7 +205,7 @@ responses/
     "message": "Success message"
   },
   "timestamp": 1640995200000,
-  "mockId": "stub01",
+  "mockId": "armsb_client_card",
   "endpoint": "/clients/search",
   "data": {
     "key": "value"
@@ -295,7 +301,7 @@ oc expose service armsb-union-service
 
 ### Health Checks
 - **Application**: `/actuator/health`
-- **Individual Stubs**: `/stub01/health` to `/stub10/health`
+- **Individual Stubs**: `/armsb_client_card/health`, `/armsb_clients/health`, `/armsb_cti/health`, `/armsb_tasks/health`, `/assistant_sber_one/health`, `/armsb_calendar/health`, `/armsb-core/health`, `/stub08/health` to `/stub10/health`
 - **Docker**: Built-in health check every 30 seconds
 
 ## Development & Customization
@@ -321,8 +327,8 @@ public class Stub01Service {
 States are automatically saved to `mock-states.json`:
 ```json
 {
-  "stub01": {
-    "mockId": "stub01",
+  "armsb_client_card": {
+    "mockId": "armsb_client_card",
     "enabled": true,
     "lastModified": 1640995200000,
     "responseFilePath": null
@@ -379,7 +385,7 @@ src/
 │   │   ├── controller/MockManagement... # Management API
 │   │   ├── model/ApiResponse.java       # Common models
 │   │   └── service/MockManagement...    # Core services
-│   └── stub01-stub10/
+│   └── armsb_*/assistant_*/*core/stub08-10/
 │       ├── controller/                  # Stub controllers
 │       └── service/                     # Stub services
 └── main/resources/
